@@ -8,6 +8,9 @@ const bodyParser = require('body-parser')
 const productRoutes = require('./api/routes/products')
 const orderRoutes = require('./api/routes/orders')
 const userRoutes = require('./api/routes/users')
+const employeeRoutes = require('./api/routes/employees')
+const voucherRoutes = require('./api/routes/vouchers')
+const examRoutes = require('./api/routes/exams')
 
 // app.use((req,res,next)=>{
 //     res.status(200).json({
@@ -42,6 +45,9 @@ app.use((req,res,next)=>{
 app.use('/products',productRoutes)
 app.use('/orders',orderRoutes)
 app.use('/users',userRoutes)
+app.use('/employees',employeeRoutes)
+app.use('/vouchers',voucherRoutes)
+app.use('/exams',examRoutes)
 
 // Handle error using Middle
 app.use((req,res,next)=>{
