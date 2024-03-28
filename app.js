@@ -34,11 +34,11 @@ app.use(bodyParser.json());
 
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin","*")
-    res.header("Access-Control-Allow-Header","Origin,X-Requested-Width,Content-Type,Accept,Authorization")
+    res.header("Access-Control-Allow-Headers","Origin,X-Requested-Width,Content-Type,Accept,Authorization")
     res.header("Access-Control-Allow-Credentials",true)
-    res.header("Access-Control-Allow-Methods","PUT","POST","GET","DELETE","OPTIONS","HEAD")
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT")
     if(res.header==="OPTIONS"){
-        res.header("Access-Control-Allow-Method","PUT","POST","GET","DELETE")
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT")
         return res.status(200).json()
     }
     next();
