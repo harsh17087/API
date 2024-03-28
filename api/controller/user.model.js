@@ -8,7 +8,10 @@ exports.create_user =async  (req,res,next)=>{
     try{
         const userObj = new User({
             _id : new mongoose.Types.ObjectId,
+            fname:req.body.fname,
             email:req.body.email,
+            contact:req.body.contact,
+            gender:req.body.gender,
             password:req.body.password
         })
 
