@@ -126,7 +126,7 @@ exports.delete_voucher = async (req,res,next)=>{
             error:null
            })
         }else{
-            res.status(404).json({
+            res.status(200).json({
                 code:1,
                 message:"delete request perform successfully",
                 data:data,
