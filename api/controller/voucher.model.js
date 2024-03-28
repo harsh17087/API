@@ -8,6 +8,7 @@ exports.create_voucher =  async (req,res,next)=>{
     try{
         const voucherObj = new Voucher({
             _id:new mongoose.Types.ObjectId(),
+            id:req.body.id,
             voucher_code:req.body.voucher_code,
             
         })

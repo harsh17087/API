@@ -8,6 +8,7 @@ exports.create_exam =  async (req,res,next)=>{
     try{
         const examObj = new Exam({
             _id:new mongoose.Types.ObjectId(),
+            id:req.body.id,
             exam:req.body.exam,
             
         })
