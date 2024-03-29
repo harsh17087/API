@@ -12,7 +12,7 @@ const employeeRoutes = require('./api/routes/employees')
 const voucherRoutes = require('./api/routes/vouchers')
 const examRoutes = require('./api/routes/exams')
 const resultRoutes = require('./api/routes/results')
-
+const questionRoutes = require('./api/routes/questions')
 // app.use((req,res,next)=>{
 //     res.status(200).json({
 //         msg :"This is simple get request"
@@ -51,6 +51,7 @@ app.use('/employees',employeeRoutes)
 app.use('/vouchers',voucherRoutes)
 app.use('/exams',examRoutes)
 app.use('/results',resultRoutes)
+app.use('/questions',questionRoutes)
 
 // Handle error using Middle
 app.use((req,res,next)=>{
