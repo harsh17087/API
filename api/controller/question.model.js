@@ -13,7 +13,8 @@ exports.create_question =  async (req,res,next)=>{
             option1:req.body.option1,
             option2:req.body.option2,
             option3:req.body.option3,
-            option4:req.body.option4
+            option4:req.body.option4,
+            isAnswer:req.body.isAnswer
         })
        const data=await questionObj.save()
         
