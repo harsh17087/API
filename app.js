@@ -3,6 +3,9 @@ const express=require('express')
 const app=express()
 const morgan=require('morgan')
 const mongoose = require('mongoose')
+const cookieParser = require('cookie-parser')
+var cors = require('cors')
+// require("./config/mongoose");
 
 const bodyParser = require('body-parser')
 const productRoutes = require('./api/routes/products')
@@ -13,14 +16,18 @@ const voucherRoutes = require('./api/routes/vouchers')
 const examRoutes = require('./api/routes/exams')
 const resultRoutes = require('./api/routes/results')
 const questionRoutes = require('./api/routes/questions')
+const productRoutes2 = require('./api/product/routes')
+const cartRoutes = require('./api/cart/routes')
+const itemRoutes = require('./api/routes/items')
+const sellerRoutes = require('./api/routes/sellers')
 // app.use((req,res,next)=>{
 //     res.status(200).json({
 //         msg :"This is simple get request"
 //     })
 // })
+
 app.use(morgan('dev'))
-
-
+app.use(cors())
 // mongoose connection string
 mongoose.connect("mongodb+srv://harshraj17087:"+process.env.MONGO_ATLAS_PASS+"@cluster0.iy0trh4.mongodb.net/",{
     useNewUrlParser:true,
@@ -29,6 +36,7 @@ mongoose.connect("mongodb+srv://harshraj17087:"+process.env.MONGO_ATLAS_PASS+"@c
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
+app.use(cookieParser())
 
 // Code to handle CORS error
 
@@ -52,7 +60,11 @@ app.use('/vouchers',voucherRoutes)
 app.use('/exams',examRoutes)
 app.use('/results',resultRoutes)
 app.use('/questions',questionRoutes)
-
+app.use('/files', express.static("files"));
+app.use("/product2", productRoutes2);
+app.use("/cart", cartRoutes);
+app.use("/items",itemRoutes)
+app.use("/sellers",sellerRoutes)
 // Handle error using Middle
 app.use((req,res,next)=>{
     const error = new Error('Route not found')
