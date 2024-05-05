@@ -16,7 +16,8 @@ exports.create_item = async (req,res,next)=>{
             description:req.body.description,
             category:req.body.category,
             image:req.body.image,
-            rating:req.body.rating
+            rating:req.body.rating,
+            stock:req.body.stock
         })
 
         const data = await itemObj.save()

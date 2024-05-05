@@ -17,7 +17,8 @@ const itemSchema = Schema({
   rating : {
     rate : {type:Number, require:true},
     count : {type : Number, require:true}
-  } 
+  },
+  stock:{type:String, require:true} 
 });
 
 module.exports = mongoose.model("Item",itemSchema)
