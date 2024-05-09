@@ -1,6 +1,6 @@
 const express=require('express')
 const router = express.Router()
-const userRequestModel=require('../controller/user.model')
+const userRequestModel=require('../controller/user.model.js')
 
 router.get('/',userRequestModel.get_user)
 
@@ -12,4 +12,9 @@ router.put('/:userId',userRequestModel.update_user)
 
 router.delete('/:userId',userRequestModel.delete_user)
 
-module.exports  =router
+// credential check
+router.post("/login",userRequestModel.check_user)
+
+// address addition
+
+module.exports=router

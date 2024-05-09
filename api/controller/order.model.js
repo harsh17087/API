@@ -7,7 +7,7 @@ exports.create_order = async (req,res,next)=>{
     try{
         const orderObj = new Order({
             _id:new mongoose.Types.ObjectId(),
-            product:req.body.productId,
+            product:req.body.itemId,
             quantity:req.body.quantity
         })
 

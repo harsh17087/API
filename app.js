@@ -10,7 +10,7 @@ var cors = require('cors')
 const bodyParser = require('body-parser')
 const productRoutes = require('./api/routes/products')
 const orderRoutes = require('./api/routes/orders')
-const userRoutes = require('./api/routes/users')
+const userRoutes = require('./api/routes/users.js')
 const employeeRoutes = require('./api/routes/employees')
 const voucherRoutes = require('./api/routes/vouchers')
 const examRoutes = require('./api/routes/exams')
@@ -20,6 +20,7 @@ const productRoutes2 = require('./api/product/routes')
 const cartRoutes = require('./api/cart/routes')
 const itemRoutes = require('./api/routes/items')
 const sellerRoutes = require('./api/routes/sellers')
+const addressRoutes = require('./api/routes/address.js')
 // app.use((req,res,next)=>{
 //     res.status(200).json({
 //         msg :"This is simple get request"
@@ -44,9 +45,9 @@ app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin","*")
     res.header("Access-Control-Allow-Headers","Origin,X-Requested-Width,Content-Type,Accept,Authorization")
     res.header("Access-Control-Allow-Credentials",true)
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT")
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,PATCH")
     if(res.header==="OPTIONS"){
-        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT")
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,PATCH")
         return res.status(200).json()
     }
     next();
@@ -65,6 +66,7 @@ app.use("/product2", productRoutes2);
 app.use("/cart", cartRoutes);
 app.use("/items",itemRoutes)
 app.use("/sellers",sellerRoutes)
+app.use("/address",addressRoutes)
 // Handle error using Middle
 app.use((req,res,next)=>{
     const error = new Error('Route not found')

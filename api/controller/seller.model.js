@@ -59,7 +59,7 @@ exports.create_seller = async (req, res, next) => {
     const check = await Seller.findOne({ email: req.body.email });
 
     if (check) {
-      alert("User already exist");
+      alert("Seller already exist");
     } else {
       const token = jwt.sign(
         { email: req.body.email },
